@@ -74,10 +74,10 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=3, min_lr
 # Train the Model
 history = model.fit(
     train_data,
-    steps_per_epoch=train_data.samples // train_data.batch_size,
-    epochs=5,
+    steps_per_epoch=10,
+    epochs=100,
     validation_data=val_data,
-    validation_steps=val_data.samples // val_data.batch_size,
+    validation_steps=10
     callbacks=[early_stopping, reduce_lr]
 )
 
