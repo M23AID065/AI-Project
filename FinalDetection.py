@@ -106,3 +106,20 @@ def plot_training_history(history):
     plt.show()
 
 plot_training_history(history)
+
+
+# Load and predict on a new image
+path = r"C:\Users\lohit ramaraju\OneDrive\Desktop\IITJ\AI\Project\emotion-based-music-player\test.jpg"
+img = load_img(path, target_size=(224, 224))
+i = img_to_array(img) / 255.0  # Normalize the image
+input_arr = np.array([i])
+input_arr.shape
+
+# Prediction
+pred = np.argmax(model.predict(input_arr))
+print(f"The image is of {op[pred]}")
+
+# Display the input image
+plt.imshow(input_arr[0])
+plt.title("Input Image")
+plt.show()
